@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>JavaScript Examples</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <form>
+            <div>
+                <label>First Name</label>
+                <input type="text" id="firstName" />
+            </div>
+            <div>
+                <label>Last Name</label>
+                <input type="text" id="lastName" />
+            </div>
+            <button type="button" id="btnSave">Save</button>
+            <button type="button" id="btnShow">Show</button>
+            <div id="result"></div>
+        </form>
+
+        <script>
+            function Student() {
+                this.id = 0;
+                this.firstName = "";
+                this.lastName = "";
+                this.toString = function () {
+                    return this.id + "," + this.firstName + "," + this.lastName;
+                };
+            }
+            var studentList = [];
+            function getObj(key) {
+                return document.getElementById(key);
+            }
+            var firstName = getObj("firstName");
+            var lastName = getObj("lastName");
+            var btnSave = getObj("btnSave");
+            var btnShow = getObj("btnShow");
+            var result = getObj("result");
+            btnSave.onclick = function () {
+                var student = new Student();
+                student.id = studentList.length + 1;
+                student.firstName = firstName.value;
+                student.lastName = lastName.value;
+                studentList.push(student);
+                firstName.value = "";
+                lastName.value = "";
+            };
+            btnShow.onclick = function () {
+                var content = "";
+                for (var i = 0; i < studentList.length; i++) {
+                    var s = studentList[i];
+                    content += s.toString() + "<br/>";
+                }
+                result.innerHTML = content;
+            };
+        </script>
+    </body>
+</html>

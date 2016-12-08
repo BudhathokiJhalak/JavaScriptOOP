@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>OOP JavaScript</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    </head>
+    <body>
+        <form>
+            <div>
+                <label>Enter first Number:</label>
+                <input type="text" id="txtnum1" value="0"/>
+            </div>
+            <div>
+                <label>Enter second Number:</label>
+                <input type="text" id="txtnum2" value="0"/>
+            </div>
+            <div>
+                <input type="button" id="btnAdd" value="+"/>
+                <input type="button" id="btnSub" value="-"/>
+                <input type="button" id="btnMul" value="*"/>
+            </div>
+            <div id="result"></div>
+        </form>
+        <script>
+            function getObj(key) {
+                return document.getElementById(key);
+            }
+            var txt1 = getObj("txtnum1");
+            var txt2 = getObj("txtnum2");
+            var btnAdd = getObj("btnAdd");
+            var btnSub = getObj("btnSub");
+            var btnMul = getObj("btnMul");
+            var result = getObj("result");
+
+            btnAdd.onclick = function () {
+                result.innerHTML = parseFloat(txt1.value) + parseFloat(txt2.value);
+            };
+            btnSub.onclick = function () {
+                result.innerHTML = parseFloat(txt1.value) - parseFloat(txt2.value);
+            };
+            btnMul.onclick = function () {
+                result.innerHTML = parseFloat(txt1.value) * parseFloat(txt2.value);
+            };
+
+            txt1.onkeyup = function () {
+                result.innerHTML = parseFloat(txt1.value) + parseFloat(txt2.value);
+            };
+            txt2.onkeyup = function () {
+                result.innerHTML = parseFloat(txt1.value) + parseFloat(txt2.value);
+            };
+
+        </script>
+    </body>
+</html>
